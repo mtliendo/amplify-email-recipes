@@ -1,6 +1,7 @@
 import {
   Button,
   FormControl,
+  FormHelperText,
   FormLabel,
   Input,
   ModalHeader,
@@ -9,6 +10,7 @@ import {
   ModalCloseButton,
   useToast,
 } from '@chakra-ui/react'
+
 import { useState } from 'react'
 
 export const ResumeForm = ({ initialRef, onClose }) => {
@@ -16,15 +18,22 @@ export const ResumeForm = ({ initialRef, onClose }) => {
   const [formState, setFormState] = useState({
     name: '',
     email: '',
+    resumeFile: undefined,
   })
+
+  const handleFileChange = (e) => {
+    const resumeFile = e.target.files[0]
+    setFormState({ ...formState, resumeFile })
+  }
 
   const handleResumeFormSubmit = async (e) => {
     e.preventDefault()
-    const { name, email } = formState
-    if (name && email) {
+    const { name, email, resumeFile } = formState
+
+    if (name && email && resumeFile) {
       try {
-        // TODO: Add code to send email here
-        console.log('<send to backend here>')
+        //TODO: ENTER BACKEND CODE HERE
+        console.log('<enter backend code here>')
 
         toast({
           title: 'Congratulations',
@@ -59,15 +68,15 @@ export const ResumeForm = ({ initialRef, onClose }) => {
 
   return (
     <>
-      <ModalHeader>Upload Contact Form</ModalHeader>
+      <ModalHeader>Upload Resume Form</ModalHeader>
       <ModalCloseButton />
       <form onSubmit={handleResumeFormSubmit}>
         <ModalBody pb={6}>
           <FormControl>
-            <FormLabel>Name</FormLabel>
+            <FormLabel>First name</FormLabel>
             <Input
               ref={initialRef}
-              placeholder="Naruto Uzumaki"
+              placeholder="First name"
               value={formState.name}
               onChange={(e) =>
                 setFormState({ ...formState, name: e.target.value })
@@ -85,6 +94,18 @@ export const ResumeForm = ({ initialRef, onClose }) => {
                 setFormState({ ...formState, email: e.target.value })
               }
             />
+          </FormControl>
+          <FormControl mt={4}>
+            <Input
+              variant="unstyled"
+              type="file"
+              name="filename"
+              accept=".pdf"
+              onChange={handleFileChange}
+            />
+            <FormHelperText>
+              Click to upload a PDF of your resume
+            </FormHelperText>
           </FormControl>
         </ModalBody>
 

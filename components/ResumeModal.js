@@ -38,7 +38,7 @@ export const ResumeModal = () => {
           }}
           onClick={onOpen}
         >
-          I&apos;m Interested!
+          Upload Resume
         </Button>
 
         <Box>
