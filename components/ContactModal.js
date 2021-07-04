@@ -12,9 +12,9 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import { useRef } from 'react'
-import { ResumeForm } from './resumeForm'
+import { ContactForm } from './ContactForm'
 
-export const ResumeModal = () => {
+export const ContactModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const initialRef = useRef()
@@ -65,7 +65,7 @@ export const ResumeModal = () => {
         <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ResumeForm initialRef={initialRef} onClose={onClose} />
+            <ContactForm initialRef={initialRef} onClose={onClose} />
           </ModalContent>
         </Modal>
       </Stack>

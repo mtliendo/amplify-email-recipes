@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Box, Container, Stack } from '@chakra-ui/react'
-import { ResumeModal } from '../components/ResumeModal'
+import { ContactModal } from '../components/ContactModal'
 import { AppHeader } from '../components/AppHeader'
 
 export default function HomePage() {
@@ -8,7 +8,7 @@ export default function HomePage() {
     <>
       <AppContainer>
         <AppHeader />
-        <ResumeModal />
+        <ContactModal />
       </AppContainer>
     </>
   )

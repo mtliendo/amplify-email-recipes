@@ -11,14 +11,14 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react'
 
-export const ResumeForm = ({ initialRef, onClose }) => {
+export const ContactForm = ({ initialRef, onClose }) => {
   const toast = useToast()
   const [formState, setFormState] = useState({
     name: '',
     email: '',
   })
 
-  const handleResumeFormSubmit = async (e) => {
+  const handleContactFormSubmit = async (e) => {
     e.preventDefault()
     const { name, email } = formState
     if (name && email) {
@@ -29,7 +29,7 @@ export const ResumeForm = ({ initialRef, onClose }) => {
         toast({
           title: 'Congratulations',
           position: 'top-right',
-          description: 'Resume successfully submitted!',
+          description: 'Successfully submitted!',
           status: 'success',
           duration: 5000,
           isClosable: true,
@@ -61,7 +61,7 @@ export const ResumeForm = ({ initialRef, onClose }) => {
     <>
       <ModalHeader>Upload Contact Form</ModalHeader>
       <ModalCloseButton />
-      <form onSubmit={handleResumeFormSubmit}>
+      <form onSubmit={handleContactFormSubmit}>
         <ModalBody pb={6}>
           <FormControl>
             <FormLabel>Name</FormLabel>
