@@ -12,7 +12,7 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import { useRef } from 'react'
-import { ResumeForm } from './resumeForm'
+import { ResumeForm } from './ResumeForm'
 
 export const ResumeModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
